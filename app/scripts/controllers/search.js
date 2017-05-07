@@ -13,6 +13,8 @@ angular.module('cineAngularApp').controller('SearchCtrl', function ($scope, $rou
     $scope.currentPage = 1;
     $scope.totalPages = 0;
     $scope.loading = true;
+    $scope.orderByPredicate = "titre";
+    $scope.orderByReverse = false;
 
     let loadMovies = _ => {
         $scope.loading = true;
@@ -25,6 +27,16 @@ angular.module('cineAngularApp').controller('SearchCtrl', function ($scope, $rou
 
     $scope.pageChanged = _ => {
         loadMovies();
+    };
+
+    $scope.clickPredicateName = _ => {
+        $scope.orderByReverse = !$scope.orderByReverse;
+        $scope.orderByPredicate = 'title';
+    };
+
+    $scope.clickPredicateRate = _ => {
+        $scope.orderByReverse = !$scope.orderByReverse;
+        $scope.orderByPredicate = 'vote_average';
     };
 
     loadMovies();
