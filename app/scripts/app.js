@@ -30,6 +30,11 @@ angular
                 controller: 'SearchCtrl',
                 controllerAs: 'search'
             })
+            .when('/info:id', {
+              templateUrl: 'views/info.html',
+              controller: 'InfoCtrl',
+              controllerAs: 'info'
+            })
             .otherwise({
                 redirectTo: '/popular'
             });
