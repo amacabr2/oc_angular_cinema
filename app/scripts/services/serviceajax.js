@@ -16,6 +16,10 @@ angular.module('cineAngularApp').factory('serviceAjax', function ($http) {
 
         search: function (query, page) {
             return $http.get("http://localhost:3000/search?q=" + query + "&page=" + page);
+        },
+
+        info: function (id) {
+            return $http.get("http://localhost:3000/info/" + id);
         }
 
     }
