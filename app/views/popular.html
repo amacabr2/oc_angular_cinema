@@ -1,8 +1,8 @@
 <div class="movies-container" id="top">
 
-    <ul class="movies">
+    <div class="row" ng-repeat="movie in movies">
 
-        <li ng-repeat="movie in movies">
+        <div class="well">
 
             <div class="row">
 
@@ -24,7 +24,7 @@
                     <div class="row">
                         <label class="col-md-2">Note : </label>
                         <div class="row col-md-10">
-                            <rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></rating>
+                            <span uib-rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></span>
                             (<span ng-bind="movie.vote_count"></span> avis)<br>
                         </div>
                     </div>
@@ -33,13 +33,13 @@
 
             </div>
 
-        </li>
+        </div>
 
-    </ul>
+    </div>
 
     <div class="row">
-        <div class="col-md-9 col-md-offset-3">
-            <pagination total-items="totalPages" ng-model="currentPage" ng-change="pageChanged()" items-per-page="20" max-size="5" boundary-links="true"></pagination>
+        <div class="col-md-9">
+            <ul uib-pagination class="pagination-sm" total-items="totalPages" ng-model="currentPage" ng-change="pageChanged()" items-per-page="20" max-size="5" boundary-links="true"></ul>
         </div>
     </div>
 
