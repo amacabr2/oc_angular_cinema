@@ -15,8 +15,9 @@ angular.module('cineAngularApp').controller('SearchCtrl', function ($scope, $rou
 
     let loadMovies = _ => {
       serviceAjax.search($scope.query, $scope.currentPage).then((data) => {
-         $scope.movies = data.data.results;
-         $scope.totalPages = data.data.total_pages;
+          console.log(data);
+          $scope.movies = data.data.results;
+          $scope.totalPages = data.data.total_pages;
       });
     };
 

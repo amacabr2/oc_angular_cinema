@@ -10,7 +10,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -33,7 +33,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"> <a href="#">Films populaire</a> </li>
                     </ul>
-                    <form class="navbar-form navbar-right inline-form">
+                    <form class="navbar-form navbar-right inline-form" ng-controller="HeaderCtrl">
                         <div class="input-group">
                             <input type="text" class="form-control" ng-model="query" placeholder="Stars Wars, Django...">
                             <span class="input-group-btn">
