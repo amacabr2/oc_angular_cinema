@@ -4,7 +4,13 @@
         <h1>Films les plus populaires</h1>
     </div>
 
-    <div class="row" ng-repeat="movie in movies">
+    <div class="row" ng-show="movies.length > 1">
+        <a ng-click="clickPredicateName()" class="btn btn-primary">Trier par nom</a>
+        <a ng-click="clickPredicateRate()" class="btn btn-primary">Trier par note</a>
+    </div>
+    <br>
+
+    <div class="row" ng-repeat="movie in movies | orderBy: orderByPredicate: orderByReverse">
 
         <div class="well">
 
