@@ -6,13 +6,17 @@ describe('Service: serviceAjax', function () {
   beforeEach(module('cineAngularApp'));
 
   // instantiate service
-  var serviceAjax;
-  beforeEach(inject(function (_serviceAjax_) {
+  let serviceAjax, httpBackend, popularRequest;
+
+  beforeEach(inject(function (_serviceAjax_, _$httpBackend_) {
     serviceAjax = _serviceAjax_;
+    httpBackend = _$httpBackend_
   }));
 
-  it('should do something', function () {
-    expect(!!serviceAjax).toBe(true);
+  it('should make a request to the right URL when calling popular function', function () {
+    serviceAjax.popular(1);
+    httpBackend.expectGET('http://localhost:3000/popular?page=1').respond({});
+    httpBackend.flush();
   });
 
 });
