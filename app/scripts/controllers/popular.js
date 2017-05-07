@@ -11,13 +11,14 @@ angular.module('cineAngularApp').controller('PopularCtrl', function ($scope, ser
 
     $scope.currentPage = 1;
     $scope.totalPages = 0;
+    $scope.loading = true;
 
     let loadMovies = _ => {
         $scope.loading = true;
         serviceAjax.popular($scope.currentPage).then((data) => {
-           $scope.movies = data.data.results;
-           $scope.totalPages = data.data.total_pages;
-           $scope.loading = false;
+            $scope.loading = false;
+            $scope.movies = data.data.results;
+            $scope.totalPages = data.data.total_pages;
         });
     };
 

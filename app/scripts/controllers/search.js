@@ -12,10 +12,12 @@ angular.module('cineAngularApp').controller('SearchCtrl', function ($scope, $rou
     $scope.query = $routeParams.query;
     $scope.currentPage = 1;
     $scope.totalPages = 0;
+    $scope.loading = true;
 
     let loadMovies = _ => {
+        $scope.loading = true;
         serviceAjax.search($scope.query, $scope.currentPage).then((data) => {
-            console.log(data);
+            $scope.loading = false;
             $scope.movies = data.data.results;
             $scope.totalPages = data.data.total_pages;
         });
