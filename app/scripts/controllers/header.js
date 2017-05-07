@@ -12,7 +12,7 @@ angular.module('cineAngularApp').controller('HeaderCtrl', function ($scope, $loc
     $scope.query = "";
 
     $scope.searchAction = _ => {
-      $location.path("/search/" + $scope.query);
+        $location.path("/search/" + $scope.query);
     };
 
 });

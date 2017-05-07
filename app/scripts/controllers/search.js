@@ -14,15 +14,15 @@ angular.module('cineAngularApp').controller('SearchCtrl', function ($scope, $rou
     $scope.totalPages = 0;
 
     let loadMovies = _ => {
-      serviceAjax.search($scope.query, $scope.currentPage).then((data) => {
-          console.log(data);
-          $scope.movies = data.data.results;
-          $scope.totalPages = data.data.total_pages;
-      });
+        serviceAjax.search($scope.query, $scope.currentPage).then((data) => {
+            console.log(data);
+            $scope.movies = data.data.results;
+            $scope.totalPages = data.data.total_pages;
+        });
     };
 
     $scope.pageChanged = _ => {
-      loadMovies();
+        loadMovies();
     };
 
     loadMovies();
