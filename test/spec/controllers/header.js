@@ -2,22 +2,27 @@
 
 describe('Controller: HeaderCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('cineAngularApp'));
+    // load the controller's module
+    beforeEach(module('cineAngularApp'));
 
-  var HeaderCtrl,
-    scope;
+    let HeaderCtrl, scope, location;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    HeaderCtrl = $controller('HeaderCtrl', {
-      $scope: scope
-      // place here mocked dependencies
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function ($controller, $rootScope, $location) {
+        scope = $rootScope.$new();
+        location = $location;
+        HeaderCtrl = $controller('HeaderCtrl', {
+            $scope: scope,
+            location: location
+        });
+    }));
+
+
+    it('should call $location.path when calling searchAction function', function () {
+        spyOn(location, 'path');
+        scope.query = "test";
+        scope.searchAction();
+        expect(location.path).toHaveBeenCalledWith("/search/test");
     });
-  }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(HeaderCtrl.awesomeThings.length).toBe(3);
-  });
 });
