@@ -1,5 +1,9 @@
 <div class="movies-container" id="top">
 
+    <div class="page-header">
+        <h1>Films les plus populaires</h1>
+    </div>
+
     <div class="row" ng-repeat="movie in movies">
 
         <div class="well">
@@ -27,6 +31,11 @@
                             <span uib-rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></span>
                             (<span ng-bind="movie.vote_count"></span> avis)<br>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2">Synopsis : </label>
+                        <div class="col-md-10" ng-bind="movie.overview"></div>
                     </div>
 
                 </div>
