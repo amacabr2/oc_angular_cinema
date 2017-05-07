@@ -30,7 +30,7 @@ angular
                 controller: 'SearchCtrl',
                 controllerAs: 'search'
             })
-            .when('/info:id', {
+            .when('/info/:id', {
               templateUrl: 'views/info.html',
               controller: 'InfoCtrl',
               controllerAs: 'info'

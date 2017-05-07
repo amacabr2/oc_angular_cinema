@@ -7,12 +7,12 @@
  * # InfoCtrl
  * Controller of the cineAngularApp
  */
-angular.module('cineAngularApp').controller('InfoCtrl', function ($scope, $scopeParams, serviceAjax) {
+angular.module('cineAngularApp').controller('InfoCtrl', function ($scope, $routeParams, serviceAjax) {
 
     let id = $routeParams.id;
 
     serviceAjax.info(id).then((data) => {
-       $scope.movie = data.data;
+        $scope.movie = data.data;
     });
 
 });

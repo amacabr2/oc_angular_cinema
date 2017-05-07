@@ -1,1 +1,49 @@
-<p>This is the info view.</p>
+<div class="movie_detail" loading="loading">
+
+    <div class="well">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300">
+            </div>
+
+            <div class="col-md-8">
+                <dl class="dl-horizontal">
+                    <dt>Genre</dt>
+                    <dd>
+                        <ul>
+                            <li ng-repeat="genre in movie.genres">{{ genre.name }}</li>
+                        </ul>
+                    </dd>
+                    <dt>Runtime</dt>
+                    <dd>{{ movie.runtime }} min</dd>
+                    <dt>Synopsis</dt>
+                    <dd>{{ movie.overview }}</dd>
+                    <dt>Companie(s)</dt>
+                    <dd>
+                        <ul>
+                            <li ng-repeat="company in movie.production_companies">{{ company.name}}</li>
+                        </ul>
+                    </dd>
+                    <dt>Origine</dt>
+                    <dd>
+                        <ul>
+                            <li ng-repeat="production in movie.production_countries">{{ production.name}}</li>
+                        </ul>
+                    </dd>
+                    <dt>Budget</dt>
+                    <dd>{{ movie.budget }} $</dd>
+                    <dt>Revenue</dt>
+                    <dd>{{ movie.revenue }} $</dd>
+                    <dt>Date</dt>
+                    <dd>{{ movie.release_date | date: 'yyyy'}}</dd>
+                </dl>
+                <a href="{{movie.homepage}}" class="btn btn-primary">Homepage</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
