@@ -7,17 +7,10 @@
  * # serviceAjax
  * Factory in the cineAngularApp.
  */
-angular.module('cineAngularApp')
-  .factory('serviceAjax', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
+angular.module('cineAngularApp').factory('serviceAjax', function () {
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+        popular: function (page) {
+            return $http.get("http://localhost:3000/popular?page=" + page);
+        }
+    }
+});
